@@ -360,7 +360,7 @@ onUnmounted(() => {
         <template v-if="!dataSources.length">
           <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
             <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
-            <span>喵喵~</span>
+            <span>Hi I'm MMG assistant, please give me your question.</span>
           </div>
         </template>
         <template v-else>
