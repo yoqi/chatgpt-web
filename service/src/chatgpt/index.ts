@@ -28,7 +28,18 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
       debug: false,
     }
 
-    api = new ChatGPTAPI({ ...options })
+    api = new ChatGPTAPI({ ...options, 
+        fetch: (url, options = {}) => {
+        const defaultOptions = {
+          agent: new HttpsProxyAgent({host: "127.0.0.1", post: 11021}),
+        }
+        const mergedOptions = {
+          ...defaultOptions,
+          ...options,
+        }
+        return fetch(url, mergedOptions)
+      },
+    })
     apiModel = 'ChatGPTAPI'
   }
   else {
